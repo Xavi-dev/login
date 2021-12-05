@@ -1,2 +1,11 @@
 # login
-Login - Confirmation of registration and password recovery by email / Boostrap - Css3 - Php 8 
+
+Login and user registration.
+Registration confirmation by email.
+Password recovery by email.
+
+100% responsive.
+
+Code: Bootstrap 5, Css, Php 8, Mysql.
+
+
