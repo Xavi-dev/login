@@ -8,4 +8,6 @@ Password recovery by email.
 
 Code: Bootstrap 5, Css, Php 8, Mysql.
 
+Informació Taules BD!!!!!!!!!!!!!!!!!!!!!!
+
 
