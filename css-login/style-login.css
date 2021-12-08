@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'ubuntulight';
+    src: url('../../fonts/ubuntu-l-webfont.woff2') format('woff2'),
+         url('../../fonts/ubuntu-l-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('../../fonts/ubuntu-r-webfont.woff2') format('woff2'),
+         url('../../fonts/ubuntu-r-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* --- GENELAR STYLES --- */
+
+.class-body {background: #fafafa;}
+.icon-input {width: 50px;}
+.icon-close-session {width: 60px;}
+.grey-color {color: #404040;}
+.green-color {color: #92cbd3}
+.bg-yellow-color {background: #eec974;}
+.bg-grey-color {background: #404040;}
+.bg-green-color {background: #92cbd3}
+.bg-red-color {background: #F04444;}
+.message {position: absolute; left: 20px; right: 20px; top: 45px; z-index: 1; padding: 8px 40px 10px 12px;}
+
+/* --- CONTAINERS --- */
+
+.container-vh {height: 100vh; user-select: none;}
+.container-projects {height: 100vh; padding: 0 100px;}
+
+.btn-login {font-family: 'ubunturegular';}
+.btn-close {font-size: 20px;}
+
+/*.link-back-home {position: absolute; left: 25px; top: 25px;}
+.icon-back-home {width: 50px;}*/
+
+#x-alert {padding: 0.7rem 0.7rem;}
+
+.form-control:focus {border: none; box-shadow: none;}
+
+a {text-decoration: none; color: #2D2529; font-size: 0.85rem;}
+a:hover {color: #449ba7;}
+
+.container-form {
+   font-family: 'ubuntulight';
+   background: #f7f7f7;
+   width: 300px;
+   box-shadow: 10px 10px 10px #909090;
+   border: 1px solid lightgray;
+   border-radius: 0.5rem;
+   -webkit-border-radius: 0.5rem;
+   -moz-border-radius: 0.5rem;
+   -ms-border-radius: 0.5rem;
+   -o-border-radius: 0.5rem;
+}
+
+.send-email {display: none;}
+
+/* --- NAV BAR --- */
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  background: rgba(24, 27, 27, 0.95); 
+  overflow-x: hidden; 
+  -webkit-transition: 0.5s; 
+  transition: 0.5s;
+}
+.overlay-content {
+  position: relative;
+  width: 100%;
+}
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 2.2rem;
+  color: #fafafa;
+  display: block; 
+  -webkit-transition: 0.3s; 
+  transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+  color: #a0abab;
+}
+.overlay .closebtn {
+  font-size: 3.7rem;
+}
+.container-burguer {
+  width: 100%;
+  height: 42px;
+  background: transparent;
+  z-index: 1;
+}
+.icon-burguer {
+  width: 32px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  cursor: pointer;
+}
