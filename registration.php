@@ -1,10 +1,10 @@
 <?php
 
-$title = "Registre d'usuari | Xaviwebdeveloper";
+$title = "User registration";
 require_once("includes-login/header.php"); 
-require_once("connexio_mysqli.php");
+require_once("connection_mysqli.php");
 
-   if(isset($_POST['registrar'])){
+   if(isset($_POST['register'])){
      $name = mysqli_real_escape_string($conn, $_POST['name']);
      $email = mysqli_real_escape_string($conn, $_POST['email']);
      $user = mysqli_real_escape_string($conn, $_POST['user']);
@@ -17,18 +17,18 @@ require_once("connexio_mysqli.php");
      
      $files = $stmtUser->num_rows;
         if($files > 0) {
-           $error = $user . " ja existeix. Elegeix-ne un altre.";
+           $error = $user . " already exists. Choose another one.";
         }else{
            $query = "INSERT INTO session_login (name,email,user,pw,token) VALUES ('$name','$email','$user','$pwEncrypt','$token')";  
            $stmtUserInsert = $conn->query($query);
         if($stmtUserInsert > 0) {
-           $registreOk = "Us heu registrat correctament. Si us plau, revisa el teu email, i clica a l'enllaç per tal d'activar el compte.";
+           $registreOk = "You have registered correctly. An email has been sent to confirm your account.";
            $toUser = $email;
-           $subject = "Confirmació de registre - xavideveloper.com";
-           $message = "Hola " . $name . ". Per tal de confirmar el registre i activar el teu compte clica al seguent enllaç: http://xavideveloper.com/login/activar_correu.php?email=" . $email . '&token=' . $token;
+           $subject = "Registration confirmation";
+           $message = "Hi " . $name . ". To confirm your registration and activate your account click on the following link: https://your-domain-name/login/activate_email.php?email=" . $email . '&token=' . $token;
            mail($toUser,$subject,$message);
         }else{
-           $error = "Error. Hi ha hagut un error al registrar-se.";
+           $error = "Error. There has been an error registering.";
         }
     }
 }
@@ -37,7 +37,11 @@ require_once("connexio_mysqli.php");
 
 <body class="class-body">
 
-<?php require_once("nav_login.php");?>
+<?php
+   require_once("nav_login.php");
+   require_once("includes-login/alert_error.php");
+   require_once("includes-login/message.php");
+   ?>
 
 <!----------------------------- MISSATGE ERROR ------------------------->
 
