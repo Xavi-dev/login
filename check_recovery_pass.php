@@ -1,6 +1,6 @@
 <?php 
 
-require_once("connexio_mysqli.php");
+require_once("connection_mysqli.php");
 
 session_start();
 
@@ -16,13 +16,13 @@ session_start();
          $stmt = $conn->query($query);
 
          if($stmt > 0) {
-            $pwUpdate = "Contrassenya actualitzada.";
+            $pwUpdate = "Updated password.";
             header("Location: new_pass.php?pw_update=".$pwUpdate);
             exit();
          }
 
      }else{
-        $pwError = "Les contrassenyes no coincideixen!";
+        $pwError = "Passwords are not equal!";
         header("Location: new_pass.php?pw_error=".$pwError);
         exit();
      }
