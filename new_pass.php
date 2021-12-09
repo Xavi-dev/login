@@ -15,7 +15,7 @@ session_start();
       $result = $stmt->num_rows;
 
       if($result < 1) {
-         header("Location: index-login.php");
+         header("Location: index_login.php");
          exit();
       }
    }
