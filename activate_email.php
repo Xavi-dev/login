@@ -1,6 +1,6 @@
 <?php 
  
-require_once("connexio_mysqli.php");
+require_once("connection_mysqli.php");
 
 session_start();
 
@@ -13,14 +13,14 @@ session_start();
       $rows = $queryResult->num_rows;
 
       if($rows === 0) {
-         $errorIsActive = "Error. Compte ja actiu, o url incorrecte!";
-         header("Location: index-login.php?errorIsActive= . '$errorIsActive'");
+         $errorIsActive = "Error. Account already active or incorrect url!";
+         header("Location: index_login.php?errorIsActive= . '$errorIsActive'");
       }else{
          $queryActive = "UPDATE session_login SET estat = '1' WHERE email = '$email'";
          $queryResultActive = $conn->query($queryActive);
-         $accountActive = "El teu compte ha estat activat.";
-         header("Location: index-login.php?accountActive=" . $accountActive);
+         $accountActive = "Your account is activated.";
+         header("Location: index_login.php?accountActive=" . $accountActive);
       }
    }else{
-      echo "Error. L'url no és correcte!";
+      echo "Error. The url is not correct!";
    }
