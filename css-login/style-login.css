@@ -13,31 +13,27 @@
     font-style: normal;
   }
 
-/* --- GENELAR STYLES --- */
 
 .class-body {background: #fafafa;}
+.container-vh {height: 100vh; user-select: none;}
+.container-projects {height: 100vh; padding: 0 100px;}
+
 .icon-input {width: 50px;}
 .icon-close-session {width: 60px;}
+
+/* -- COLORS --*/
 .grey-color {color: #404040;}
 .green-color {color: #92cbd3}
 .bg-yellow-color {background: #eec974;}
 .bg-grey-color {background: #404040;}
 .bg-green-color {background: #92cbd3}
 .bg-red-color {background: #F04444;}
+
 .message {position: absolute; left: 20px; right: 20px; top: 45px; z-index: 1; padding: 8px 40px 10px 12px;}
-
-/* --- CONTAINERS --- */
-
-.container-vh {height: 100vh; user-select: none;}
-.container-projects {height: 100vh; padding: 0 100px;}
+#x-alert {padding: 0.7rem 0.7rem;}
 
 .btn-login {font-family: 'ubunturegular';}
 .btn-close {font-size: 20px;}
-
-/*.link-back-home {position: absolute; left: 25px; top: 25px;}
-.icon-back-home {width: 50px;}*/
-
-#x-alert {padding: 0.7rem 0.7rem;}
 
 .form-control:focus {border: none; box-shadow: none;}
 
