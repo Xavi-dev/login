@@ -37,11 +37,22 @@ require_once("connection_mysqli.php");
 
 <body class="class-body">
 
-<?php
-   require_once("nav_login.php");
-   require_once("includes-login/alert_error.php");
-   require_once("includes-login/message.php");
-   ?>
+<?php require_once("nav_login.php"); ?>
+   
+   
+<?php if(isset($error)) : ?>
+      <div class="alert alert-dismissible fade show message bg-red-color" role="alert">
+         <span><?php echo $error; ?></span> 
+         <button type="button" class="btn-close" id="x-alert" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+   <?php endif; ?>
+   
+<?php if(isset($registrationOk)) : ?>
+      <div class="alert alert-dismissible fade show message bg-green-color" role="alert">
+         <span><?php echo $registrationOk; ?></span> 
+         <button type="button" class="btn-close" id="x-alert" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+   <?php endif; ?>
 
 
 <div class="d-flex justify-content-center container-vh"> 
