@@ -1,8 +1,8 @@
 <?php 
 
-$title = "Nova contrassenya | xavideveloper";
+$title = "New password";
 require_once("includes-login/header.php"); 
-require_once("connexio_mysqli.php");
+require_once("connection_mysqli.php");
 
 session_start();
 
@@ -23,10 +23,9 @@ session_start();
 ?>
 
 <body class="class-body">
+   
 
 <?php require_once("nav_login.php");?>
-
-<!----------------------------- MISSATGE PASSWORD ERROR ------------------------->
 
    <?php if(isset($_GET['pw_error'])) : ?>
       <div class="alert alert-dismissible fade show message bg-red-color" role="alert">
@@ -35,8 +34,6 @@ session_start();
       </div>
    <?php endif; ?>
 
-<!----------------------------- MISSATGE PASSWORD ACTUALITZAT ------------------------->
-
    <?php if(isset($_GET['pw_update'])) : ?>
       <div class="alert alert-dismissible fade show message bg-green-color" role="alert">
          <?php echo $_GET['pw_update']; ?>
@@ -44,28 +41,27 @@ session_start();
       </div>
    <?php endif; ?>
 
-<!-------------------------------------------------------------------------->
 
    <div class="d-flex justify-content-center container-vh">
 
       <div class="flex-sm-row align-self-center container-form p-3">
 
-         <form action="recovery_pw_controller.php" method="POST" id="userform" class="form">
+         <form action="check_recovery_pass.php" method="POST" id="userform" class="form">
 
             <div class="input-group mb-3">
-               <input type="password" class="form-control" name="newPw" placeholder="Nova Contrassenya" required>
+               <input type="password" class="form-control" name="newPw" placeholder="New password" required>
             </div>
 
             <div class="input-group mb-3">
-               <input type="password" class="form-control" name="repeatPw" placeholder="Confirma la contrassenya" required>
+               <input type="password" class="form-control" name="repeatPw" placeholder="Confirm password" required>
             </div>
 
             <div class="row">
                <div class="col-sm-12 mb-1">
                   <input type="hidden" name="email" value="<?= $email ?>">
                   <input type="hidden" name="token" value="<?= $token ?>">
-                     <button type="submit" name="ingressar" class="btn bg-green-color d-block w-100"><span>Actualitzar</span></button>
-                     <p class="mb-0 mt-1"><a href="index-login.php">Inici de sessió.</a></p>
+                     <button type="submit" name="enter" class="btn bg-green-color d-block w-100"><span>Update</span></button>
+                     <p class="mb-0 mt-1"><a href="index-login.php">Log in.</a></p>
                 </div>
             </div>
 
