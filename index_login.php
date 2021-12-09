@@ -30,7 +30,6 @@ session_start();
 
 <?php require_once("nav_login.php");?>
 
-<!----------------------------- MISSATGE ERROR ------------------------->
 
     <?php if(isset($error)) : ?>
     <div class="alert alert-dismissible fade show message bg-red-color" role="alert">
@@ -40,8 +39,6 @@ session_start();
     </div>
     <?php endif; ?>
 
-    <!---------------------------------------------------------------------->
-
     <?php if(isset($_GET['accountActive'])) : ?>
     <div class="alert alert-dismissible fade show message bg-green-color" role="alert">
         <?php echo $_GET['accountActive'];?>
@@ -49,8 +46,6 @@ session_start();
             aria-label="Close"></button>
     </div>
     <?php endif; ?>
-
-    <!---------------------------------------------------------------------->
 
 
    <div class="d-flex justify-content-center container-vh">
@@ -64,20 +59,20 @@ session_start();
          <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" id="userform" class="form">
 
             <div class="input-group mb-3">
-               <input type="text" class="form-control" name="user" placeholder="Usuari" required>
+               <input type="text" class="form-control" name="user" placeholder="User" required>
             </div>
 
             <div class="input-group mb-3">
-               <input type="password" class="form-control" name="pw" placeholder="Contrassenya" required>
+               <input type="password" class="form-control" name="pw" placeholder="Password" required>
             </div>
 
             <div class="row">
                <div class="col-sm-12 mb-1">
-                  <button type="submit" name="ingressar" class="btn bg-green-color d-block w-100"><span>Iniciar sessió</span></button>
+                  <button type="submit" name="enter" class="btn bg-green-color d-block w-100"><span>Log in</span></button>
                </div>
             </div>
-                <p class="mb-0"><a href="registre.php">Registra't.</a></p>
-                <a href="recovery_pass.php">Has oblidat la teva contrassenya?</a>
+                <p class="mb-0"><a href="registre.php">Register.</a></p>
+                <a href="recovery_pass.php">Forgot your password?</a>
 
          </form>
 
