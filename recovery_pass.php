@@ -1,8 +1,8 @@
 <?php 
 
-$title = "Recuperar contrassenya | xaviwebdeveloper";
+$title = "Password recovery";
 require_once("includes-login/header.php"); 
-require_once("connexio_mysqli.php");
+require_once("connection_mysqli.php");
 
    if(isset($_POST['recoverypass'])) {
       $email = mysqli_real_escape_string($conn,$_POST['email']);
@@ -11,55 +11,38 @@ require_once("connexio_mysqli.php");
       $result = $stmtEmailExists->num_rows;
 
       if($result < 1) {
-         $error = "No existeix aquest email a la base de dades!";
+         $error = "This email does not exist in the database!";
       }else{
          $user = $stmtEmailExists->fetch_assoc();
          $email = $user['email'];
          $token = $user['token'];
          $name = $user['name'];
 
-         $messageSendEmail = "T'hem enviat un email al teu compte per tal d'actualitzar la teva contrassenya.";
+         $messageSendEmail = "An email has been sent to your account to update your password.";
 
          $toUser = $email;
-         $subject = "Recuperació de contrassenya - xavideveloper.com";
-         $message = "Hola " . $name . ". Clica al seguent enllaç per tal d'actualitzar la teva contrassenya: http://xavideveloper.com/login/new_pass.php?email=" . $email . '&token=' . $token;
+         $subject = "Password recovery";
+         $message = "Hi " . $name . ". Click on the following link to update your password: http://your-domain-name/login/new_pass.php?email=" . $email . '&token=' . $token;
          mail($toUser,$subject,$message);
       }
    }
 
 ?>
 
-
 <body class="class-body">
 
-<?php require_once("nav_login.php");?>
-
-<!------------------------- MISSATGE ERROR SI NO EXISTEIX EMAIL A LA BASE DE DADES ------------------------->
-
-   <?php if(isset($error)) : ?>
-      <div class="alert alert-dismissible fade show message bg-red-color" role="alert">
-         <?php echo $error; ?>
-            <button type="button" class="btn-close" id="x-alert" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-   <?php endif; ?>
-
-<!----------------------------- MISSATGE REGISTREOK ------------------------->
-
-   <?php if(isset($messageSendEmail)) : ?>
-      <div class="alert alert-dismissible fade show message bg-green-color" role="alert">
-         <?php echo $messageSendEmail; ?>
-            <button type="button" class="btn-close" id="x-alert" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-   <?php endif; ?>
-
-<!-------------------------------------------------------------------------->
+<?php 
+   require_once("nav_login.php");
+   require_once("includes-login/alert_error.php");
+   require_once("includes-login/message.php");
+?>
 
    <div class="d-flex justify-content-center container-vh">
 
       <div class="flex-sm-row align-self-center p-3">
 
       <div class="d-flex justify-content-center mb-3">
-         <p class="color-grey pt-5">Escriu el teu email per tal de recuperar la teva contrassenya.</p>
+         <p class="color-grey pt-5">Enter your email to recover your password.</p>
       </div>
 
       <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" class="form">
@@ -69,7 +52,7 @@ require_once("connexio_mysqli.php");
          </div>
 
          <div>
-            <button type="submit" name="recoverypass" class="btn bg-green-color d-block w-100"><span>Recuperar contrassenya</span></button>
+            <button type="submit" name="recoverypass" class="btn bg-green-color d-block w-100"><span>Recovery password</span></button>
          </div>
                 
       </form>
