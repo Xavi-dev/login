@@ -1,12 +1,12 @@
 <?php
 
-$title = "Accés usuari | xavideveloper";
+$title = "User login";
 require_once("includes-login/header.php"); 
-require_once("connexio_mysqli.php");
+require_once("connection_mysqli.php");
 
 session_start(); 
 
-   if(isset($_POST['ingressar'])) {
+   if(isset($_POST['enter'])) {
       $user = mysqli_real_escape_string($conn, $_POST['user']);
       $PW = mysqli_real_escape_string($conn, $_POST['pw']); 
       $pwEncrypt = sha1($PW);
@@ -18,9 +18,9 @@ session_start();
       if($rows > 0) {
          $row = $queryResult->fetch_assoc();
          $_SESSION['id'] = $row['id'];
-         header("Location: session_login_ok.php?");
+         header("Location: login_session_accepted.php?");
       }else{
-         $error = "L'usuari o el password són incorrectes.";
+         $error = "User or password is incorrect.";
       }
    }
 
