@@ -71,7 +71,7 @@ require_once("connection_mysqli.php");
          </div>
 
          <button type="submit" name="registration" class="btn bg-green-color d-block w-100"><span>Register</span></button>
-         <a href="index-login.php">Already registered? Log in</a>
+         <a href="index_login.php">Already registered? Log in</a>
       
       </form>  
 
