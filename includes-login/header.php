@@ -1,4 +1,4 @@
-<?php require_once("connexio_mysqli.php");?>
+<?php require_once("connection_mysqli.php");?>
 
 <!doctype html>
 <html lang="en">
